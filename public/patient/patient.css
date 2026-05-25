@@ -1,0 +1,405 @@
+/* Patient Page - Kiosk Touch Interface Styles */
+/* RSI Muhammadiyah 2 Kendal - Sistem Antrian */
+
+:root {
+    --primary: #00897b;
+    --primary-dark: #00695c;
+    --primary-light: #4db6ac;
+    --accent: #26a69a;
+    --bg: #f5f7fa;
+    --surface: #ffffff;
+    --text-primary: #212121;
+    --text-secondary: #616161;
+    --error: #d32f2f;
+    --error-bg: #ffebee;
+    --warning: #f57c00;
+    --warning-bg: #fff3e0;
+    --success: #2e7d32;
+    --success-bg: #e8f5e9;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.16);
+    --radius: 12px;
+    --radius-lg: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    overflow-x: hidden;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #ffffff;
+    text-align: center;
+    padding: 24px 16px;
+    box-shadow: var(--shadow);
+}
+
+.header__title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.header__subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.9;
+    margin-top: 4px;
+}
+
+/* Main Content */
+.main-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px 16px;
+    min-height: calc(100vh - 160px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Queue Types Section */
+.queue-types-section {
+    width: 100%;
+}
+
+.queue-types-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    width: 100%;
+}
+
+/* Queue Type Button */
+.queue-type-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    padding: 20px 16px;
+    border: none;
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    color: var(--primary-dark);
+    font-size: 1.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    border: 2px solid transparent;
+}
+
+.queue-type-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-light);
+}
+
+.queue-type-btn:active {
+    transform: translateY(0);
+    background: var(--primary);
+    color: #ffffff;
+    box-shadow: var(--shadow);
+}
+
+.queue-type-btn__prefix {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 8px;
+    color: var(--primary);
+}
+
+.queue-type-btn:active .queue-type-btn__prefix {
+    color: #ffffff;
+}
+
+.queue-type-btn__name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.queue-type-btn:active .queue-type-btn__name {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.queue-type-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* No Service Message */
+.no-service-message {
+    text-align: center;
+    padding: 48px 24px;
+    width: 100%;
+}
+
+.no-service-message__icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.no-service-message__text {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Result Area */
+.result-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.result-area__card {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 40px 32px;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    max-width: 480px;
+    border-top: 6px solid var(--primary);
+}
+
+.result-area__label {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.result-area__number {
+    font-size: 5rem;
+    font-weight: 800;
+    color: var(--primary-dark);
+    line-height: 1.1;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+}
+
+.result-area__type {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.result-area__timestamp {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-top: 8px;
+}
+
+.result-area__close-btn {
+    margin-top: 24px;
+    padding: 16px 40px;
+    min-height: 56px;
+    border: none;
+    border-radius: var(--radius);
+    background: var(--primary);
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.result-area__close-btn:hover {
+    background: var(--primary-dark);
+}
+
+.result-area__close-btn:active {
+    transform: scale(0.97);
+}
+
+/* Message Area (Error/Warning) */
+.message-area {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 16px;
+    padding: 16px 20px;
+    border-radius: var(--radius);
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.message-area--error {
+    background: var(--error-bg);
+    border: 1px solid var(--error);
+}
+
+.message-area--error .message-area__text {
+    color: var(--error);
+}
+
+.message-area--warning {
+    background: var(--warning-bg);
+    border: 1px solid var(--warning);
+}
+
+.message-area--warning .message-area__text {
+    color: var(--warning);
+}
+
+.message-area--success {
+    background: var(--success-bg);
+    border: 1px solid var(--success);
+}
+
+.message-area--success .message-area__text {
+    color: var(--success);
+}
+
+.message-area__text {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 16px;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading state for buttons */
+.queue-type-btn--loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.queue-type-btn--loading::after {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-top: 8px;
+    border: 3px solid var(--primary-light);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .header {
+        padding: 20px 12px;
+    }
+
+    .header__title {
+        font-size: 1.4rem;
+    }
+
+    .main-content {
+        padding: 16px 12px;
+    }
+
+    .queue-types-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .queue-type-btn {
+        min-height: 80px;
+        padding: 16px 12px;
+    }
+
+    .queue-type-btn__prefix {
+        font-size: 1.5rem;
+    }
+
+    .result-area__number {
+        font-size: 4rem;
+    }
+
+    .result-area__card {
+        padding: 32px 20px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    .queue-types-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .queue-type-btn {
+        min-height: 100px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .queue-types-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .queue-type-btn {
+        min-height: 120px;
+    }
+
+    .result-area__number {
+        font-size: 6rem;
+    }
+}
+
+/* High contrast for accessibility */
+@media (prefers-contrast: high) {
+    .queue-type-btn {
+        border: 3px solid var(--primary-dark);
+    }
+
+    .result-area__number {
+        color: #000000;
+    }
+}

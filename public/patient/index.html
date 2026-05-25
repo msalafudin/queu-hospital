@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antrian - RSI Muhammadiyah 2 Kendal</title>
+    <link rel="stylesheet" href="/shared/common.css">
+    <link rel="stylesheet" href="patient.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__title">RSI Muhammadiyah 2 Kendal</h1>
+        <p class="header__subtitle">Sistem Antrian Pasien</p>
+    </header>
+
+    <main class="main-content">
+        <!-- Queue Type Buttons -->
+        <section class="queue-types-section">
+            <h2 class="section-title">Pilih Jenis Layanan</h2>
+            <div id="queue-types-container" class="queue-types-container">
+                <!-- Buttons will be dynamically populated -->
+            </div>
+        </section>
+
+        <!-- No Service Message -->
+        <div id="no-service-message" class="no-service-message" style="display: none;">
+            <div class="no-service-message__icon">⚠️</div>
+            <p class="no-service-message__text">Tidak ada layanan antrian yang tersedia saat ini</p>
+        </div>
+
+        <!-- Result Display Area -->
+        <div id="result-area" class="result-area" style="display: none;">
+            <div class="result-area__card">
+                <p class="result-area__label">Nomor Antrian Anda</p>
+                <p id="result-queue-number" class="result-area__number">A-001</p>
+                <p id="result-queue-type" class="result-area__type">Pendaftaran</p>
+                <p id="result-timestamp" class="result-area__timestamp"></p>
+            </div>
+            <button id="result-close-btn" class="result-area__close-btn" type="button">Ambil Antrian Lagi</button>
+        </div>
+
+        <!-- Error/Warning Messages Area -->
+        <div id="message-area" class="message-area" style="display: none;">
+            <p id="message-text" class="message-area__text"></p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; RSI Muhammadiyah 2 Kendal</p>
+    </footer>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/shared/socket-client.js"></script>
+    <script src="patient.js"></script>
+</body>
+</html>

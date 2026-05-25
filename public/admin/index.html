@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin - Sistem Antrian</title>
+    <link rel="stylesheet" href="/shared/common.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <header class="admin-header">
+        <h1>Panel Admin - Sistem Antrian</h1>
+        <div class="header-status">
+            <span id="connection-status" class="status-indicator status-connected">Terhubung</span>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <!-- Left Panel: Controls -->
+        <section class="admin-controls">
+            <!-- Loket Selection -->
+            <div class="control-section" id="loket-selector">
+                <h2 class="section-title">Pilih Loket</h2>
+                <select id="loket-dropdown" class="form-select">
+                    <option value="">-- Pilih Loket --</option>
+                </select>
+            </div>
+
+            <!-- Queue Type Selection -->
+            <div class="control-section" id="type-selector">
+                <h2 class="section-title">Pilih Tipe Antrian</h2>
+                <select id="type-dropdown" class="form-select">
+                    <option value="">-- Pilih Tipe Antrian --</option>
+                </select>
+            </div>
+
+            <!-- Call Controls -->
+            <div class="control-section call-controls">
+                <h2 class="section-title">Kontrol Antrian</h2>
+                <button id="btn-call-next" class="btn btn-primary btn-large" disabled>
+                    Panggil Berikutnya
+                </button>
+                <button id="btn-recall" class="btn btn-secondary btn-large" disabled>
+                    Panggil Ulang
+                </button>
+            </div>
+
+            <!-- Currently Serving Display -->
+            <div class="control-section" id="current-serving-display">
+                <h2 class="section-title">Sedang Dilayani</h2>
+                <div class="serving-info">
+                    <span class="serving-number" id="serving-number">---</span>
+                    <span class="serving-loket" id="serving-loket">-</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Panel: Info & Management -->
+        <section class="admin-info">
+            <!-- Waiting Counts -->
+            <div class="control-section" id="waiting-counts">
+                <h2 class="section-title">Antrian Menunggu</h2>
+                <div class="waiting-list" id="waiting-list">
+                    <!-- Dynamically populated -->
+                    <p class="empty-state">Memuat data...</p>
+                </div>
+            </div>
+
+            <!-- Queue Type Management -->
+            <div class="control-section" id="queue-type-management">
+                <h2 class="section-title">Manajemen Tipe Antrian</h2>
+                <form id="queue-type-form" class="crud-form">
+                    <input type="hidden" id="queue-type-id" value="">
+                    <div class="form-group">
+                        <label for="queue-type-name">Nama Tipe Antrian</label>
+                        <input type="text" id="queue-type-name" class="form-input" placeholder="Contoh: Pendaftaran" maxlength="50" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="queue-type-prefix">Kode Prefix</label>
+                        <input type="text" id="queue-type-prefix" class="form-input" placeholder="Contoh: A" maxlength="3" required>
+                        <small class="form-hint">1-3 karakter huruf kapital (A-Z)</small>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" id="btn-save-type" class="btn btn-primary">Simpan</button>
+                        <button type="button" id="btn-cancel-type" class="btn btn-secondary" style="display:none;">Batal</button>
+                    </div>
+                </form>
+                <div class="queue-type-list" id="queue-type-list">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+
+            <!-- Reset Section -->
+            <div class="control-section reset-section">
+                <h2 class="section-title">Reset Antrian</h2>
+                <p class="reset-description">Reset seluruh antrian hari ini. Data rekap akan disimpan sebelum reset.</p>
+                <button id="btn-reset" class="btn btn-danger">Reset Antrian</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Reset Confirmation Dialog -->
+    <div id="reset-dialog" class="modal-overlay" style="display:none;">
+        <div class="modal-content">
+            <h3 class="modal-title">Konfirmasi Reset Antrian</h3>
+            <div class="modal-body">
+                <p>Anda akan mereset seluruh antrian:</p>
+                <ul class="reset-info-list">
+                    <li>Tanggal: <strong id="reset-date">-</strong></li>
+                    <li>Total antrian: <strong id="reset-total">-</strong></li>
+                </ul>
+                <p class="modal-warning">Tindakan ini tidak dapat dibatalkan. Rekap data akan disimpan secara otomatis.</p>
+            </div>
+            <div class="modal-actions">
+                <button id="btn-confirm-reset" class="btn btn-danger">Ya, Reset Antrian</button>
+                <button id="btn-cancel-reset" class="btn btn-secondary">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/shared/socket-client.js"></script>
+    <script src="admin.js"></script>
+    <script src="admin-management.js"></script>
+</body>
+</html>

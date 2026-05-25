@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Antrian - RSI Muhammadiyah 2 Kendal</title>
+    <link rel="stylesheet" href="/shared/common.css">
+    <link rel="stylesheet" href="display.css">
+</head>
+<body>
+    <header class="display-header">
+        <h1 class="display-header__hospital">RSI Muhammadiyah 2 Kendal</h1>
+        <p class="display-header__title">Informasi Antrian</p>
+    </header>
+
+    <main class="display-main">
+        <div id="display-grid" class="display-grid">
+            <!-- Loket cards will be dynamically populated -->
+            <!-- Template structure for each card:
+            <div class="loket-card" data-loket-id="1">
+                <div class="loket-card__header">
+                    <span class="loket-card__name">Loket 1</span>
+                </div>
+                <div class="loket-card__body">
+                    <p class="loket-card__number">A-001</p>
+                    <p class="loket-card__type">Pendaftaran</p>
+                </div>
+            </div>
+
+            Card with no queue placeholder:
+            <div class="loket-card loket-card--empty" data-loket-id="2">
+                <div class="loket-card__header">
+                    <span class="loket-card__name">Loket 2</span>
+                </div>
+                <div class="loket-card__body">
+                    <p class="loket-card__number loket-card__number--empty">---</p>
+                    <p class="loket-card__type loket-card__type--empty">Belum ada antrian</p>
+                </div>
+            </div>
+
+            Card with highlight animation (newly called):
+            <div class="loket-card loket-card--highlight" data-loket-id="1">
+                ...
+            </div>
+            -->
+        </div>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/shared/socket-client.js"></script>
+    <script src="display.js"></script>
+</body>
+</html>

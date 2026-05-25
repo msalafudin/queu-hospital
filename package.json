@@ -1,0 +1,36 @@
+{
+  "name": "antrian-rsi2",
+  "version": "1.0.0",
+  "description": "Sistem Antrian Rumah Sakit RSI Muhammadiyah 2 Kendal - Aplikasi web berbasis jaringan lokal untuk mengelola antrian pasien",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
+    "test": "jest --testPathPattern=\\.test\\.js$",
+    "test:integration": "jest --testPathPattern=\\.integration\\.test\\.js$",
+    "test:all": "jest"
+  },
+  "keywords": [
+    "hospital",
+    "queue",
+    "antrian",
+    "rumah-sakit",
+    "local-network"
+  ],
+  "author": "RSI Muhammadiyah 2 Kendal",
+  "license": "ISC",
+  "dependencies": {
+    "better-sqlite3": "^11.7.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "node-thermal-printer": "^4.4.3",
+    "socket.io": "^4.8.0"
+  },
+  "devDependencies": {
+    "fast-check": "^3.22.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.7",
+    "socket.io-client": "^4.8.0",
+    "supertest": "^7.0.0"
+  }
+}
